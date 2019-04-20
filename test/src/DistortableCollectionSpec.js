@@ -1,12 +1,3 @@
-function simulateCommandMousedown(el) {
-  if (document.createEvent) {
-    var e = document.createEvent('MouseEvents');
-    e.initMouseEvent('mousedown', true, true, window,
-      0, 0, 0, 0, 0, true, false, false, true, 0, null);
-    return el.dispatchEvent(e);
-  }
-};
-
 describe("L.DistortableCollection", function () {
   var map,
     overlay,
@@ -14,9 +5,9 @@ describe("L.DistortableCollection", function () {
     imageFeatureGroup;
 
   beforeEach(function (done) {
-    map = new L.Map(L.DomUtil.create('div', '', document.body)).setView([41.7896, -87.5996], 15);
+    map = L.map(L.DomUtil.create('div', '', document.body)).setView([41.7896, -87.5996], 15);
 
-    overlay = new L.DistortableImageOverlay('/examples/example.png', {
+    overlay = L.distortableImageOverlay('/examples/example.png', {
       corners: [
         new L.LatLng(41.7934, -87.6052),
         new L.LatLng(41.7934, -87.5852),
@@ -25,7 +16,7 @@ describe("L.DistortableCollection", function () {
       ]
     }).addTo(map);
 
-    overlay2 = new L.DistortableImageOverlay('/examples/example.png', {
+    overlay2 = L.distortableImageOverlay('/examples/example.png', {
       corners: [
         new L.LatLng(41.7934, -87.6050),
         new L.LatLng(41.7934, -87.5850),
@@ -53,7 +44,7 @@ describe("L.DistortableCollection", function () {
 
   });
 
-  describe("_deselectAll", function () {
+  describe("#_deselectAll", function () {
     it("Should deselect all images on map click", function() {
       L.DomUtil.addClass(overlay.getElement(), "selected");
       L.DomUtil.addClass(overlay2.getElement(), "selected");
@@ -68,10 +59,10 @@ describe("L.DistortableCollection", function () {
     });
   });
 
-  describe("_toggleMultiSelect", function () {
+  describe("#_toggleMultiSelect", function () {
     it("Should allow selection of multiple images on command + click", function() {
-      simulateCommandMousedown(overlay.getElement());
-      simulateCommandMousedown(overlay2.getElement());
+      chai.simulateCommandMousedown(overlay.getElement());
+      chai.simulateCommandMousedown(overlay2.getElement());
 
       var classStr = L.DomUtil.getClass(overlay.getElement());
       var classStr2 = L.DomUtil.getClass(overlay2.getElement());
@@ -84,7 +75,7 @@ describe("L.DistortableCollection", function () {
       L.DomUtil.removeClass(overlay.getElement(), "selected");
       overlay.editing._mode = "lock";
 
-      simulateCommandMousedown(overlay.getElement());
+      chai.simulateCommandMousedown(overlay.getElement());
       var classStr = L.DomUtil.getClass(overlay.getElement());
 
       expect(classStr).to.not.include("selected");
