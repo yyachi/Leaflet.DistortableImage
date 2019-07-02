@@ -319,13 +319,15 @@ L.DistortableCollection = L.FeatureGroup.extend({
       if (this.isSelected(layer)) {
         var sections = layer._image.src.split('/');
         var filename = sections[sections.length-1];
+        var zc = layer.getCorners();
+        var corners = [zc[2], zc[0], zc[1], zc[3]];
         json.images.push({
           id: this.getLayerId(layer),
           src: layer._image.src,
           width: layer._image.width,
           height: layer._image.height,
           image_file_name: filename,
-          nodes: layer.getCorners(),
+          nodes: corners,
           cm_per_pixel: L.ImageUtil.getCmPerPixel(layer)
         });
       }
@@ -346,8 +348,7 @@ L.DistortableCollection = L.FeatureGroup.extend({
     // this may be overridden to update the UI to show export progress or completion
     function _defaultUpdater(data) {
       // optimization: fetch status directly from google storage:
-      if (data.hasOwnProperty('status_url') && statusUrl !== data.status_url && data.status_url.match('.json')) statusUrl = data.status_url;
-      if (data.status === "complete") {
+      if (data.hasOwnProperty('status_url') && statusUrl !== data.status_url && data.status_url.match('.json')) { statusUrl = data.status_url; }      if (data.status === "complete") {
         clearInterval(updateInterval);
         alert("Export complete. " + data.jpg);
       }
