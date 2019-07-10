@@ -8,10 +8,10 @@ var ToggleTransparency = L.EditAction.extend({
       tooltip;
     
     if (edit._transparent) {
-      href = '<use xlink:href="../assets/icons/symbol/sprite.symbol.svg#opacity"></use>';
+      href = '<use xlink:href="/icons/symbol/sprite.symbol.svg#opacity"></use>';
       tooltip = 'Make Image Opaque';
     } else {
-      href = '<use xlink:href="../assets/icons/symbol/sprite.symbol.svg#opacity-empty"></use>';
+      href = '<use xlink:href="/icons/symbol/sprite.symbol.svg#opacity-empty"></use>';
       tooltip = 'Make Image Transparent';
     }
 
@@ -38,10 +38,10 @@ var ToggleOutline = L.EditAction.extend({
       tooltip;
     
     if (edit._outlined) {
-      href = '<use xlink:href="../assets/icons/symbol/sprite.symbol.svg#border_clear"></use>';
+      href = '<use xlink:href="/icons/symbol/sprite.symbol.svg#border_clear"></use>';
       tooltip = 'Remove Border';
     } else {
-      href = '<use xlink:href="../assets/icons/symbol/sprite.symbol.svg#border_outer"></use>';
+      href = '<use xlink:href="/icons/symbol/sprite.symbol.svg#border_outer"></use>';
       tooltip = 'Add Border';
     }
 
@@ -63,7 +63,7 @@ var ToggleOutline = L.EditAction.extend({
 
 var Delete = L.EditAction.extend({
   initialize: function(map, overlay, options) {
-    var href = '<use xlink:href="../assets/icons/symbol/sprite.symbol.svg#delete_forever"></use>';
+    var href = '<use xlink:href="/icons/symbol/sprite.symbol.svg#delete_forever"></use>';
 
     options = options || {};
     options.toolbarIcon = {
@@ -88,10 +88,10 @@ var ToggleLock = L.EditAction.extend({
       tooltip;
 
     if (edit._mode === 'lock') {
-      href = '<use xlink:href="../assets/icons/symbol/sprite.symbol.svg#unlock"></use>';
+      href = '<use xlink:href="/icons/symbol/sprite.symbol.svg#unlock"></use>';
       tooltip = 'Unlock';
     } else {
-      href = '<use xlink:href="../assets/icons/symbol/sprite.symbol.svg#lock"></use>';
+      href = '<use xlink:href="/icons/symbol/sprite.symbol.svg#lock"></use>';
       tooltip = 'Lock';
     }
 
@@ -118,10 +118,10 @@ var ToggleRotateScale = L.EditAction.extend({
       tooltip;
 
     if (edit._mode === 'rotateScale') {
-      href = '<use xlink:href="../assets/icons/symbol/sprite.symbol.svg#transform"></use>';
+      href = '<use xlink:href="/icons/symbol/sprite.symbol.svg#transform"></use>';
       tooltip = 'Distort';
     } else {
-      href = '<use xlink:href="../assets/icons/symbol/sprite.symbol.svg#crop_rotate"></use>';
+      href = '<use xlink:href="/icons/symbol/sprite.symbol.svg#crop_rotate"></use>';
       tooltip = 'Rotate+Scale';
     }
 
@@ -143,7 +143,7 @@ var ToggleRotateScale = L.EditAction.extend({
 
 var Export = L.EditAction.extend({
   initialize: function(map, overlay, options) {
-    var  href = '<use xlink:href="../assets/icons/symbol/sprite.symbol.svg#get_app"></use>';
+    var  href = '<use xlink:href="/icons/symbol/sprite.symbol.svg#get_app"></use>';
 
     options = options || {};
     options.toolbarIcon = {
@@ -168,10 +168,10 @@ var ToggleOrder = L.EditAction.extend({
       tooltip;
 
     if (edit._toggledImage) {
-      href = '<use xlink:href="../assets/icons/symbol/sprite.symbol.svg#flip_to_front"></use>';
+      href = '<use xlink:href="/icons/symbol/sprite.symbol.svg#flip_to_front"></use>';
       tooltip = 'Stack to Front';
     } else {
-      href = '<use xlink:href="../assets/icons/symbol/sprite.symbol.svg#flip_to_back"></use>';
+      href = '<use xlink:href="/icons/symbol/sprite.symbol.svg#flip_to_back"></use>';
       tooltip = 'Stack to Back';
     }
 
@@ -193,7 +193,7 @@ var ToggleOrder = L.EditAction.extend({
 
 var EnableEXIF = L.EditAction.extend({
   initialize: function(map, overlay, options) {
-    var href = '<use xlink:href="../assets/icons/symbol/sprite.symbol.svg#explore"></use>';
+    var href = '<use xlink:href="/icons/symbol/sprite.symbol.svg#explore"></use>';
 
     options = options || {};
     options.toolbarIcon = {
@@ -213,7 +213,7 @@ var EnableEXIF = L.EditAction.extend({
 
 var Restore = L.EditAction.extend({
   initialize: function(map, overlay, options) {
-    var href = '<use xlink:href="../assets/icons/symbol/sprite.symbol.svg#restore"></use>';
+    var href = '<use xlink:href="/icons/symbol/sprite.symbol.svg#restore"></use>';
 
     options = options || {};
     options.toolbarIcon = {
