@@ -48,7 +48,7 @@ img.leaflet-image-layer.selected {
 }
 
 .l-container {
-  background-color: rgb(255, 255, 255, 0.75);
+  background-color: rgba(255, 255, 255, 0.75);
   color: black;
   padding: 0px 10px 6px 10px;
   font-size: 14px;
